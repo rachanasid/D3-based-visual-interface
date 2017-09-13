@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Visualization Porject</title>
+
+    <!-- Custom CSS -->
+    <link href="static/scrolling-nav.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src = "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel = "stylesheet">
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="static/script.js"></script>
+    <!-- Scrolling Nav JavaScript -->
+    <script src="static/jquery.easing.min.js"></script>
+    <script src="static/scrolling-nav.js"></script>
+
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+        <div style="margin-left:80px;">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <img src="/static/logo.png" height="35px" style="margin-top: -7px;">
+
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#correlationSection">Correlation Matrix</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#scatterplotSection">Scatter Plot Matrix</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#dashboardSection">Accidents - Weekly</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#donutSection">Severity Vs Weather</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#barchartSection">Point of Impact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#genderSection">Age Group</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#treemapSection">Districtwise</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#groupBarChartSection">Home Area Type</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#conclusionSection">Conclusion</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Analyzing and Visualizing UK Road Accidents 2015 </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="intro_list">
+                        <li>Road traffic injuries can affect all populations, regardless of age, sex, or geographic region.</li>
+                        <li>The economic cost of the problem in Britain is in the region of £13 billion a year (Department for Transport).</li>
+                       
+                    </ul>
+
+                </div>
+                <div class="col-md-6" >
+                    <ul class="intro_list" style="padding-left:0px">
+                        
+                        <li>With more vehicles on the road than ever before, its important to understand them in greater detail.</li>
+                        <li>The data includes generic and specific details about the vehicles, driver,severity of accidents.</li>
+                    </ul>
+
+                </div>
+            </div>
+            <!--<div class="row">-->
+                <!--<div class="col-md-6 col-md-offset-6">-->
+                     <!--<img height="290px" src="/static/wordcloud.png">-->
+                <!--</div>-->
+            <!--</div>-->
+
+    </section>
+    <!--Correlation Matrix-->
+
+    <section id="correlationSection" class="correlation-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Correlation Matrix</h1>
+                    <div>Gives the correlation between the different factors responsible for road accidents.</div>
+                    <img height="550px" src="/static/Correlation.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Correlation Matrix-->
+
+    <section id="scatterplotSection" class="scatterplot-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1>Scatterplot Matrix</h1>
+                    <div id="scatter_plot"></div>
+                </div>
+                <div class="col-lg-4" style="margin-top:250px;">
+                    <h1></h1>
+                    Most of the accidents occur when there is no special condition at site (blue represents none), followed by special condition roadworks i.e when there is an on going road work (green represents roadworks).
+
+                    From vehicle location we can infer that, most of the accidents occur on main carriageway (1 represents main carriageway), followed by the vehicle location Footway (10 represents footway - pavement).
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Dashboard -->
+    <section id="dashboardSection" class="dashboard-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div style="text-align:center">
+                        <h1>Weekly Trend of Accidents</h1>
+                        <div>
+                            The histogram displays the frequency of accidents in each month of 2015.
+                            The pie chart displays the frequency of accidents for each month.
+
+                        </div>
+                    </div>
+                    <div id='barpie'>
+
+                    </div>
+                    <br>
+                     <div style="text-align:center">
+                        <b>Inference : </b> It can be inferred that the number of accidents are high on Friday (for most of them months) because people usually tend to go
+                        for a vacation as it is the beginning of the weekend.
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donut Section -->
+    <section id="donutSection" class="donut-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Accident Severity when weather is fine with no winds</h1>
+                    <div>
+                        The donut chart displays the severity of the accidents when the weather condition is Fine no high winds.
+                        <br>
+                        <b>Inference :</b>We can infer that when the weather is fine and without wind, rain or snow, the accident severity is likely to be Slight.
+                    </div>
+                    <div id="donut">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barchart Section -->
+    <section id="barchartSection" class="barchart-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Severity Based on Point Of Contact</h1>
+                </div>
+                <div>
+                    The bar chart displays the frequency of Fatal accidents versus first point of impact .
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div id="bar">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <img height="230px" src="/static/img2.jpg">
+                </div>
+            </div>
+            <div class="row" style="margin:20px">
+                <div class="col-md-12">
+                    <b>Inference : </b>It can be inferred that if the first point of impact is Front, then the number of Fatal accidents would be high.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="genderSection" class="gender-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Age Group Vs Number of Accidents</h1>
+                    <div>
+                        This barchart shows the distribution of age groups versus the number of accidents.
+                        The pink bars represent number of female drivers while the blue bars represent number of male drivers.
+                        The bars overlap to show the difference in frequency of the accidents.
+                    </div>
+                    <div id="stacked">
+                    </div>
+                    <div style="margin:20px">
+                        <b> Inference : </b> The maximum number of accidents are committed by the age band 26-45 irrespective of the gender.
+                        This is expected as the young adults travel more.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="treemapSection" class="treemap-section">
+        <div class="">
+            <div class="row">
+                <div class="col-lg-8">
+
+                        <div>Top 5 Most Populous Districts : <b>Birmingham</b>, <b>Leeds</b>, Sheffield, <b>Cornwall</b>, Bradford</div>
+                        <div>Top 5 Most Places by Accidents : <b>Birmingham</b>, <b>Leeds</b>, Westminer, <b>Cornwall</b>, Liverpool</div>
+                        <div> The <b>Treemap</b> represents the number of accidents occuring in UK in the top 5 districts. Each district is again subdivided
+                        based on the weather conditions when the accident occured.</div>
+
+                        <div> <b>Inference : </b>We are able to infer that most number of accidents occur in highly populated places.
+                        We are also able to infer that the number of accidents are high when the weather is 'Fine no high wind' irrespective of the district.</div>
+
+
+                    <div id="chart">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div>
+                        <b>BBC NEWS : </b>The image below shows the location of 2,396,750 road crashes in Great Britain from 1999 to 2010.
+                        Each light point is an individual collision which resulted in a casualty.
+                        The intensity of brightness shows where collisions are more frequent.
+                    </div>
+                    <img height="440px" style="margin-top:80px" src="/static/uk_all_crashes.gif">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="groupBarChartSection" class="groupbarchart-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Home Area Type Versus Severity Of the Accidents</h1>
+                    <div style="text-align:left">
+                        Home Area can be broadly classified into Rural area, Small town and Urban Area. A group bar chart best describes
+                        the severity of the accidents occuring at these places. Log Scale has been applied on the data for better visualization.
+                    </div>
+                    <div style="margin:20px;text-align:left">
+                        <b>Inference : </b> The following can be inferred from the group bar chart :
+                        <ul>
+                            <li>Most of the accidents have taken place in Urban areas. This is intuitive as the population is more in urban areas as compared to other areas.</li>
+                            <li>It can also be inferred that the Fatal accidents are more in Urban areas.</li>
+                        </ul>
+                    </div>
+                    <div id="groupBarChart">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="conclusionSection" class="conclusion-section">
+        <div class="">
+            <div class="row">
+                <div class="col-lg-12" style="margin-top:-20px">
+                    <h1>Conclusion</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1">
+                    <ul class="intro_list">
+                        <li>The number of accidents are high on Friday (for most of them months) because people usually tend to go
+                            for a vacation as it is the beginning of the weekend.</li>
+                        <li>When the weather is fine and without wind, rain or snow, the accident severity is likely to be Slight.</li>
+                        <li>If the first point of impact is Front, then the number of Fatal accidents would be high.</li>
+                        <li>The maximum number of accidents are committed by the age band 26-45 irrespective of the gender.
+                        This is expected as the young adults travel more.</li>
+                        <li>Most number of accidents occur in highly populated places.</li>
+                        <li>The number of accidents are high when the weather is 'Fine no high wind' irrespective of the district.</li>
+                        <li>Most of the accidents have taken place in Urban areas. This is intuitive as the population is more in urban areas as compared to other areas.</li>
+                        <li>Fatal accidents are more in Urban areas.</li>
+
+                    </ul>
+                </div>
+                <div class="col-md-5 pull-right">
+                    <div>
+                        <div class="speedo-title">Fast Drive Could Be Last Drive !!!</div>
+                        <div id="speedo"></div>
+                        <img height="200px" src="/static/speed.jpg">
+                         <img style="margin:20px" height="250px" class="pull-right" src="/static/wordcloud.png">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        interactive_bar_pie('#barpie');
+        donut_chart('#donut');
+        bar_chart_light_conditions('#bar');
+        stacked_bar_chart('#stacked');
+        treemap('#chart');
+        group_bar_chart('#groupBarChart');
+        speedometer('#speedo')
+        display_scatterplot_matrix('#scatter_plot)
+
+    </script>
+</body>
+
+
+</html>

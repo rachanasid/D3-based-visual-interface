@@ -1,0 +1,347 @@
+#chart {
+    margin-left:30px;
+}
+
+#groupBarChart body {
+    position: relative;
+}
+#groupBarChart  svg {
+    width: 100%;
+    height: 100%;
+    position: center;
+}
+
+#groupBarChart text{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#groupBarChart .toolTip {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: absolute;
+    display: none;
+    width: auto;
+    height: auto;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: -3px 3px 15px #888888;
+    color: black;
+    font: 12px sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+
+#groupBarChart .legend {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 60%;
+}
+
+#groupBarChart rect {
+    stroke-width: 2;
+}
+
+#groupBarChart text {
+    font: 10px sans-serif;
+}
+
+#groupBarChart .axis text {
+    font: 10px sans-serif;
+}
+
+#groupBarChart .axis path{
+    fill: none;
+    stroke: #000;
+}
+
+#groupBarChart .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+#groupBarChart .axis .tick line {
+    stroke-width: 1;
+    stroke: rgba(0, 0, 0, 0.2);
+}
+
+#groupBarChart .axisHorizontal path{
+    fill: none;
+}
+
+#groupBarChart .axisHorizontal line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+#groupBarChart .axisHorizontal .tick line {
+    stroke-width: 1;
+    stroke: rgba(0, 0, 0, 0.2);
+}
+
+#groupBarChart.bar {
+    fill: steelblue;
+    fill-opacity: .9;
+}
+
+#groupBarChart. x.axis path {
+    display: none;
+}
+
+
+path {  stroke: #fff; }
+path:hover {  opacity:0.9; }
+rect:hover {  fill:blue; }
+.axis {  font: 10px sans-serif; }
+.legend tr{    border-bottom:1px solid grey; }
+.legend tr:first-child{    border-top:1px solid grey; }
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {  display: none; }
+.legend{
+    display:inline-block;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+.legend td{
+    padding:4px 5px;
+    vertical-align:bottom;
+}
+.legendFreq, .legendPerc{
+    align:right;
+    width:50px;
+}
+
+.nav-pills>li.active>a {
+    background-color: black !important;
+}
+
+svg {
+    font: 10px sans-serif;
+    padding: 10px;
+}
+
+.axis,
+.frame {
+    shape-rendering: crispEdges;
+}
+
+.axis line {
+    stroke: #ddd;
+}
+
+.axis path {
+    display: none;
+}
+
+.cell text {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.frame {
+    fill: none;
+    stroke: #aaa;
+}
+
+circle {
+    fill-opacity: .7;
+}
+
+circle.hidden {
+    fill: #ccc !important;
+}
+
+.extent {
+    fill: #000;
+    fill-opacity: .125;
+    stroke: #fff;
+}
+
+.bar {
+    fill: steelblue !important;
+}
+
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis line,
+.axis path {
+    fill: none;
+    stroke: #eee;
+    shape-rendering: crispEdges;
+}
+
+.axis--x path {
+    display: none;
+}
+
+
+.treemap {
+    background: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.treemap rect {
+    fill: none;
+    stroke: #fff;
+}
+
+
+
+#chart .title {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+#chart text {
+    pointer-events: none;
+}
+
+#chart .grandparent text {
+    font-weight: bold;
+}
+
+#chart rect.parent,
+.grandparent rect {
+    stroke-width: 2px;
+}
+
+#chart rect.parent {
+    pointer-events: none;
+}
+
+#chart .grandparent rect {
+    fill: orange !important;
+}
+
+#chart .grandparent:hover rect {
+    fill: #ee9700;
+}
+
+#chart .children rect.parent,
+.grandparent rect {
+    cursor: pointer;
+}
+
+#chart .children rect.parent {
+    fill: #bbb;
+    fill-opacity: .5;
+}
+
+#chart .children:hover rect.child {
+    fill: #bbb;
+}
+
+
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+.gauge .domain {
+    stroke-width: 2px;
+    stroke: #fff;
+}
+
+.gauge .tick line {
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.gauge line {
+    stroke: #fff;
+}
+
+.gauge .arc, .gauge .cursor {
+    opacity: 0;
+}
+
+.gauge .major {
+    fill: #fff;
+    font-size: 20px;
+    font-family: 'Play', verdana, sans-serif;
+    font-weight: normal;
+}
+
+.gauge .indicator {
+    stroke: #EE3311;
+    fill: #000;
+    stroke-width: 4px;
+}
+
+.segdisplay .on {
+    fill: #00FFFF;
+
+}
+
+.segdisplay .off {
+    fill: #00FFFF;
+    opacity: 0.15;
+}
+
+.speedo-title {
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size:20px;
+}
+
+ul.intro_list {
+    font-size: 18px;
+    text-align:left;
+}
